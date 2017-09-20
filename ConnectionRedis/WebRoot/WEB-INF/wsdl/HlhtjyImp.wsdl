@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://hlht/services/HlhtjyImp" xmlns:intf="http://hlht/services/HlhtjyImp" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://hlht/services/HlhtjyImp">
+  <wsdl:message name="decryptRequest">
+    <wsdl:part name="forArgXml" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="decryptResponse">
+    <wsdl:part name="decryptReturn" type="xsd:string"/>
+  </wsdl:message>
+
+  <wsdl:message name="csrkRequest">
+    <wsdl:part name="forArgXml" type="xsd:string"/>
+  </wsdl:message>
+ <wsdl:message name="csrkResponse">
+    <wsdl:part name="csrkReturn" type="xsd:string"/>
+  </wsdl:message>
+    <wsdl:message name="sydjRequest">
+    <wsdl:part name="forArgXml" type="xsd:string"/>
+  </wsdl:message>
+ <wsdl:message name="sydjResponse">
+    <wsdl:part name="sydjReturn" type="xsd:string"/>
+  </wsdl:message>
+
+ <wsdl:message name="selectqyrkRequest">
+    <wsdl:part name="forArgXml" type="xsd:string"/>
+  </wsdl:message>
+
+  <wsdl:message name="selectqyrkResponse">
+    <wsdl:part name="selectqyrkReturn" type="xsd:string"/>
+  </wsdl:message>
+  
+   <wsdl:message name="getqyrkRequest">
+    <wsdl:part name="forArgXml" type="xsd:string"/>
+  </wsdl:message>
+
+  <wsdl:message name="getqyrkResponse">
+    <wsdl:part name="getqyrkReturn" type="xsd:string"/>
+  </wsdl:message>
+  
+  <wsdl:message name="encryptRequest">
+    <wsdl:part name="forArgXml" type="xsd:string"/>
+    <wsdl:part name="forReturnstr" type="xsd:string"/>
+  </wsdl:message>
+
+  <wsdl:message name="encryptResponse">
+    <wsdl:part name="encryptReturn" type="xsd:string"/>
+  </wsdl:message>
+
+
+  <wsdl:message name="selectcsrkRequest">
+  	<wsdl:part name="forArgXml" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="selectcsrkResponse">
+  	<wsdl:part name="selectcsrkReturn" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HlhtjyImp">
+    <wsdl:operation name="decrypt" parameterOrder="forArgXml">
+      <wsdl:input message="impl:decryptRequest" name="decryptRequest"/>
+      <wsdl:output message="impl:decryptResponse" name="decryptResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="encrypt" parameterOrder="forArgXml forReturnstr">
+      <wsdl:input message="impl:encryptRequest" name="encryptRequest"/>
+      <wsdl:output message="impl:encryptResponse" name="encryptResponse"/>
+    </wsdl:operation>
+     <wsdl:operation name="csrk" parameterOrder="forArgXml">
+      <wsdl:input message="impl:csrkRequest" name="csrkRequest"/>
+      <wsdl:output message="impl:csrkResponse" name="csrkResponse"/>
+    </wsdl:operation>
+     <wsdl:operation name="sydj" parameterOrder="forArgXml">
+      <wsdl:input message="impl:sydjRequest" name="sydjRequest"/>
+      <wsdl:output message="impl:sydjResponse" name="sydjResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="selectqyrk" parameterOrder="forArgXml">
+      <wsdl:input message="impl:selectqyrkRequest" name="selectqyrkRequest"/>
+      <wsdl:output message="impl:selectqyrkResponse" name="selectqyrkResponse"/>
+    </wsdl:operation>
+     <wsdl:operation name="getqyrk" parameterOrder="forArgXml">
+      <wsdl:input message="impl:getqyrkRequest" name="getqyrkRequest"/>
+      <wsdl:output message="impl:getqyrkResponse" name="getqyrkResponse"/>
+    </wsdl:operation>
+     <wsdl:operation name="selectcsrk">
+     	<wsdl:input message="impl:selectcsrkRequest" name="selectcsrkRequest"></wsdl:input>
+     	<wsdl:output message="impl:selectcsrkResponse" name="selectcsrkResponse"></wsdl:output>
+     </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="HlhtjyImpSoapBinding" type="impl:HlhtjyImp">
+    <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="decrypt">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="decryptRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht.business.padis.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="decryptResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht/services/HlhtjyImp" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encrypt">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="encryptRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht.business.padis.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="encryptResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht/services/HlhtjyImp" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="csrk">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="csrkRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht.business.padis.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="csrkResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht/services/HlhtjyImp" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sydj">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="sydjRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht.business.padis.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sydjResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht/services/HlhtjyImp" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectqyrk">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="selectqyrkRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht.business.padis.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="selectqyrkResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht/services/HlhtjyImp" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+     <wsdl:operation name="getqyrk">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getqyrkRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht.business.padis.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getqyrkResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht/services/HlhtjyImp" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+     <wsdl:operation name="selectcsrk">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="selectcsrkRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht.business.padis.com" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="selectcsrkResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://hlht/services/HlhtjyImp" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HlhtjyImpService">
+    <wsdl:port binding="impl:HlhtjyImpSoapBinding" name="HlhtjyImp">
+      <wsdlsoap:address location="http://www.padis.net.cn/padis/hlht/services/HlhtjyImp"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
